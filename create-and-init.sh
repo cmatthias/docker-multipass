@@ -1,12 +1,12 @@
 #!/bin/sh
 set -xe
 
-MEM=2048M
-CPUS=2
-DISK=20G
+MEM=4096M
+CPUS=4
+DISK=50G
 
 echo "Creating and launching instance"
-multipass launch --name primary -c $CPUS -m $MEM -d $DISK --cloud-init cloud-init.yml
+multipass launch --name primary -c $CPUS -m $MEM -d $DISK --cloud-init cloud-init.yml 21.10
 
 echo "Mounting $HOME into remote instance: primary"
 multipass mount ${HOME} primary:/Users/${USER}
